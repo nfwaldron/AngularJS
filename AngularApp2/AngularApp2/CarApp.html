@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="CarApp">
+<head>
+    <title></title>
+    <style>
+        input.ng-dirty.ng-invalid{
+            background-color: pink;
+        }
+        input.ng-dirty.ng-valid{
+            background-color:limegreen;
+        }
+        .error {
+        font-weight: bold;
+        color:red;
+        }
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {display: none !important;}
+
+    </style>
+
+</head>
+<body ng-controller="CarController as main" ng-cloak>
+    <form name="carForm" ng-submit="main.saveCar()" novalidate>
+        <div>
+            <label>
+                Model:
+            </label>
+                <input ng-model="main.car.model" ng-required="true" />
+            <span ng-show="carForm.model.$dirty&&carForm.model.$error.required" class="error">Car Model is Required</span>
+        </div>
+        <div>
+            <label>
+                Price:
+            </label>
+                <input type="number" ng-model="main.car.price" ng-required="true" />
+            <span ng-show="carForm.price.$dirty&&carForm.price.$error.number" class="error">Car Price is Required</span>
+        </div>
+        <input type="submit" value="Save" ng-disabled="carForm.$invalid"/>
+    </form>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="CarApp/app.js"></script>
+    <script src="CarApp/CarAppController.js"></script>
+</body>
+</html>

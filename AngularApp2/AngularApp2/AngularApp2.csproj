@@ -212,6 +212,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="CarApp.html" />
+    <Content Include="CarApp\app.js" />
+    <Content Include="CarApp\CarAppController.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
