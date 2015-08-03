@@ -1,5 +1,5 @@
 ﻿(function () {
-    angular.module('MultiPage', ['ngRoute']).config(function ($routeProvider) {
+    angular.module('MultiPage', ['ngRoute']).config(function ($routeProvider, $locationProvider) {
         $routeProvider
         .when('/', {
             templateUrl: '/ngViews/viewA.html',
@@ -19,8 +19,10 @@
         .otherwise({
             templateUrl: '/ngViews/notFound.html'
         });
+
+        $locationProvider.html5Mode(true);
     });
 
-
+    
 
 })();
