@@ -7,15 +7,41 @@
     </style>
 
 </head>
-<body ng-controller="CountriesController as main">
-    <ul ng-cloak>
+<body ng-controller="CountriesController as main" ng-cloak>
+    <ul>
         <li ng-repeat="country in main.countries">{{country.name}} - {{country.population}}</li>
     </ul>
     <div>
-        <button ng-click="main.chooseColor('red;)">Red</button>
+        <button ng-click="main.chooseColor('red')">Red</button>
         <button ng-click="main.chooseColor('green')">Green</button>
         <button ng-click="main.chooseColor('blue')">Blue</button> 
     </div>
+
+    <div>
+        <form ng-submit="main.submit()">
+            <input ng-model="main.firstName" />
+            <input type="submit"/>
+        </form>
+        <br />
+        <pre>
+        Dear {{main.firstNameEnhanced}},
+        I regret to inform you that we cannot accept your paper on two way data binding.
+</pre>
+    </div>
+
+    <div>
+        <form ng-submit="main.calculate()">
+            <label>Number One</label>
+            <input ng-model="main.num1"/>
+            <label>Number Two</label>
+            <input ng-model="main.num2"/>
+            <input type="submit" />
+        </form>
+        <p>{{main.num1}} + {{main.num2}} = {{main.result}}</p>
+
+    </div>
+
+
 
     <script src="Scripts/angular.min.js"></script>
     <script src="ngApps/CountriesApp/app.js"></script>
