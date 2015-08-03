@@ -221,9 +221,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="countries.html" />
+    <Content Include="multiPage.html" />
+    <Content Include="MultiPage\app.js" />
+    <Content Include="MultiPage\controller.js" />
     <Content Include="ngApps\CountriesApp\app.js" />
     <Content Include="ngApps\CountriesApp\controllers.js" />
+    <Content Include="ngViews\notFound.html" />
+    <Content Include="ngViews\viewA.html" />
+    <Content Include="ngViews\viewB.html" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -248,6 +256,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
