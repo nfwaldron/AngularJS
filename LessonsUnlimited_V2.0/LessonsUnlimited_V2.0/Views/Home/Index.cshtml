@@ -3,19 +3,22 @@
 }
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head>
     <title></title>
+    @*The value of the <base> element should correspond to the base URL for your 
+    single page app. In our case, because we are serving our client-side AngularJS app 
+    from the root of our server-side ASP.NET MVC app, we need to set the base URL to the value /.*@
+    <base href="/">
 </head>
 <body>
     <h1>Lessons Unlimited</h1>
     <ng-view></ng-view>
 
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/ngApp/app.js"></script>
+    <script src="~/ngApp/masterController.js"></script>
 
-
-    <script src="../Scripts/angular.min.js"></script>
-    <script src="../Scripts/angular-route.min.js"></script>
-    <script src="../ngApp/app.js"></script>
-    <script src="../ngApp/masterController.js"></script>
 </body>
 </html>

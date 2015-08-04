@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict'
-    angular.module('myApp', ['ngRoute']).config(function ($routeProvider) {
+    angular.module('myApp', ['ngRoute']).config(function ($routeProvider, $locationProvider) {
         //$routeProvider to define our routes. If someone enters the address/or the address/viewA in 
         //their browser then the /ngViews/viewA.html template will be inserted into the layout. If 
         //someone requests the URL /viewB/78 or /viewB/2 then the /ngViews/viewB.html template will be 
@@ -13,20 +13,21 @@
                 controller: 'HomeController',
                 controllerAs: 'main'
             })
-            .when('/Home', {
+            .when('/home', {
                 templateUrl: '/ngViews/home.html',
                 controller: 'HomeController',
                 controllerAs: 'main'
             })
-            .when('/Lessons', {
-                templateUrl: '/ngView/lessons.html',
+            .when('/lessons', {
+                templateUrl: '/ngViews/lessons.html',
                 controller: 'LessonsController',
                 controllerAs: 'main'
             })
             .otherwise({
-                templateUrl: '/ngView/notFound.html'
+                templateUrl: '/ngViews/notFound.html'
 
             });
+        $locationProvider.html5Mode(true);
             
     });
 
