@@ -9,15 +9,24 @@
         //for each route. When the view is opened, these controllers are associated with the views automatically.
         $routeProvider
             .when('/', {
-                templateUrl: '/ngViews/Home.html',
+                templateUrl: '/ngViews/home.html',
                 controller: 'HomeController',
                 controllerAs: 'main'
             })
             .when('/Home', {
-                templateUrl: '/ngViews/Home.html',
+                templateUrl: '/ngViews/home.html',
                 controller: 'HomeController',
                 controllerAs: 'main'
             })
+            .when('/Lessons', {
+                templateUrl: '/ngView/lessons.html',
+                controller: 'LessonsController',
+                controllerAs: 'main'
+            })
+            .otherwise({
+                templateUrl: '/ngView/notFound.html'
+
+            });
             
     });
 
