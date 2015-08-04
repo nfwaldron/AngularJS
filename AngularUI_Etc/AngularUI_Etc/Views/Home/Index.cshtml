@@ -7,15 +7,21 @@
     <title></title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
-<body>
+<body ng-controller="PageController as main">
     <input type="text" tooltip="Hello World!" tooltip-placement="bottom" />
 
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
 
-
+    <button ng-click="main.showModal(3)">Show Modal</button>
 
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="~/ngApps/BootstrapApp/Bootstrap.js"></script>
+    <script src="~/ngApps/BootstrapApp/controllers.js"></script>
 </body>
 </html>
 
+@*1. Install Angular UI Bootstrap from NuGet 2. Add 'ui-bootstrap' to app module dependencies in app.js file. 3. Include tpls.min version of Angular UI Bootstrap in Index.html 4. Add Bootstrap style to top of Index.html  5. DO NOT add Boostrap javascript to bottom of Index.html 6. Use cool directives!*@
