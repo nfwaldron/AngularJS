@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MovieApp">
+<head>
+    <title></title>
+</head>
+<body ng-controller="MoviesController as main">
+
+    <input ng-model="main.search" />
+    <br />
+    <!--<ul>
+        <li ng-repeat="movie in main.movies|filter:main.search">{movie}-{movie.description}  </li>
+    </ul>-->
+
+    <ul>
+        <li ng-repeat="movie in main.movies|startsWith:main.search|unique">{{movie}}</li>
+    </ul>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="ngApps/MovieApp/app.js"></script>
+    <script src="ngApps/MovieApp/controllers.js"></script>
+    <script src="ngApps/MovieApp/filter.js"></script>
+</body>
+</html>

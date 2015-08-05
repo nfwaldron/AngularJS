@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="ReptileApp">
+<head>
+    <title></title>
+</head>
+<body ng-controller="ReptilesController as main">
+    <input ng-model="main.filter" ng-change="main.fetch()"/>
+    <br />
+    <ul>
+        <li ng-repeat="reptile in main.reptiles">{{reptile.Name}} - {{reptile.Species}} - {{reptile.NumberOfScales}}</li>
+    </ul>
+
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="ngApps/ReptilesApp/app.js"></script>
+    <script src="ngApps/ReptilesApp/controllers.js"></script>
+</body>
+</html>

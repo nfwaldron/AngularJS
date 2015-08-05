@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace AngularUI_Etc.Models
 {
@@ -20,6 +21,8 @@ namespace AngularUI_Etc.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public IDbSet<Reptile> Reptiles { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -30,4 +33,6 @@ namespace AngularUI_Etc.Models
             return new ApplicationDbContext();
         }
     }
+
+    
 }
