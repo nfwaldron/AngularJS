@@ -55,6 +55,10 @@ namespace BookStore.Controllers
         // DELETE: api/Books/5
         public void Delete(int id)
         {
+            var book = _db.Books.Find(id);
+            _db.Books.Remove(book);
+            _db.SaveChanges();
+             
         }
     }
 }

@@ -1,7 +1,9 @@
 ﻿(function () {
     var app = angular.module('BookApp');
-    app.controller('BooksController', function ($resource, $modal) {
+    app.controller('BooksController', function ($resource, $modal, booksControllerUrl) {
         var self = this;
+
+        self.taxes = taxService(3.44)
 
         // If a function is being used to represent a class put it in uppercase.
         // the $resource will go off to the books controller, and go to the get method,
@@ -9,6 +11,14 @@
         var Book = $resource('/api/books/:id');
 
         self.books = Book.query();
+
+        self.remove = function (book) {
+            book.$remove({ id: book.id }, function () {
+                self.books = self.books.filter(function (item) {
+                    return item.id != book.id;
+                })
+            });
+        };
 
         self.createBook = function () {
             var book = new Book(self.book);
@@ -38,7 +48,7 @@
 
     });
 
-    app.controller('ModalController', function (id, $modalInstance, $resource) {
+    app.controller('ModalController', function (id, $modalInstance, $resource, booksControllerUrl) {
         var self = this;
         var Book = $resource('/api/books/:id');
         self.book = Book.get({ id: id });

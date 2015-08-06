@@ -227,6 +227,7 @@
     <Content Include="Global.asax" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\controllers.js" />
+    <Content Include="ngApp\services.js" />
     <Content Include="ngViews\editModal.html" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />

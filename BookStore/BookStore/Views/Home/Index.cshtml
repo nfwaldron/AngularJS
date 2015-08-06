@@ -9,7 +9,7 @@
     <link href="~/Content/ui-bootstrap-csp.css" rel="stylesheet" />
 </head>
 <body ng-controller="BooksController as main">
-    
+    <h1>{{main.taxes}}</h1>
     <form ng-submit="main.createBook()">
         <div>
             <label>Title</label>
@@ -26,7 +26,7 @@
     <ul>
         <li ng-repeat="book in main.books">
         {{book.title}} <a href="#" ng-click="main.showEditModal(book.id)">Edit</a>
-            {{book.title}} <a href="#" ng-click="main.showEditModal(book.id)">Edit</a>
+        <a href="#" ng-click="main.remove(book)">Delete</a>
         </li>
     </ul>
 
@@ -35,5 +35,6 @@
     <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
     <script src="~/ngApp/app.js"></script>
     <script src="~/ngApp/controllers.js"></script>
+    <script src="~/ngApp/services.js"></script>
 </body>
 </html>
