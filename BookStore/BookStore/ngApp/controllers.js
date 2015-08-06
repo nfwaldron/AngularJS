@@ -2,7 +2,6 @@
     var app = angular.module('BookApp');
     app.controller('BooksController', function ($resource, $modal, booksControllerUrl) {
         var self = this;
-
         self.taxes = taxService(3.44)
 
         // If a function is being used to represent a class put it in uppercase.

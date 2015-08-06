@@ -1,3 +1,13 @@
-﻿    <h1>Lessons</h1>
+﻿<div>
+    <h1>Lessons</h1>
     <h2>{{main.message}}</h2>
     <a href="/home">Go to Home Page</a>
+</div>
+
+<div>
+    <ul>
+        <li ng-repeat="lesson in main.lessons">{{lesson.title}}</li>
+    </ul>
+       
+</div>
+

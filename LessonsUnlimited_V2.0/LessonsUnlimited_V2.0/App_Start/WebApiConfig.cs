@@ -12,6 +12,9 @@ namespace LessonsUnlimited_V2._0
     {
         public static void Register(HttpConfiguration config)
         {
+            // Formatter that converts PascaleCase to CamelCase
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();

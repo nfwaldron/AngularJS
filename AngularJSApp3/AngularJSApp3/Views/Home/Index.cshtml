@@ -1,0 +1,21 @@
+﻿@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title></title>
+</head>
+<body ng-controller="MoviesController as main">
+    <div>
+        <ul>
+            <li ng-repeat="movie in main.movies">{{movie}}</li>
+        </ul>
+
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/ngApp/app.js"></script>
+    <script src="~/ngApp/controller.js"></script>
+</body>
+</html>

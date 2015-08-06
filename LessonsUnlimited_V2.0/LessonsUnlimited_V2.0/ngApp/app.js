@@ -23,6 +23,12 @@
                 controller: 'LessonsController',
                 controllerAs: 'main'
             })
+            .when('/teachers',{
+                templateUrl: '/ngViews/teachers.html',
+                controller:'TeachersController',
+                controllerAs: 'main'
+            })
+
             .otherwise({
                 templateUrl: '/ngViews/notFound.html'
 
