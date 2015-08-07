@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="MultiPage">
+<head>
+    <title></title>
+    <style>
+        .task.ng-enter, .page.ng-enter{
+            opacity:0;
+            transition: 1s linear all;
+        }
+
+        .task.ng-enter-active, .page.ng-enter-active{
+            opacity:1;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="page" ng-view></div ng-view>
+
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-animate.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="ngApps/MultiPage/app.js"></script>
+    <script src="ngApps/MultiPage/controllers.js"></script>
+    <script src="ngApps/MultiPage/directive.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<h1>HI IM VIEW A</h1>
+<a href="#/viewB">View B</a>
+
+<form ng-submit="main.addTask()">
+    <input ng-model="main.task.taskDescription" />
+    <input type="submit" />
+</form>
+
+<ul>
+    <li ng-repeat="task in main.tasks" class="task">
+    <my-task></my-task>
+    </li>
+</ul>

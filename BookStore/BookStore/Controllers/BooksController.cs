@@ -12,6 +12,7 @@ namespace BookStore.Controllers
     {
         private ApplicationDbContext _db = new ApplicationDbContext();
 
+
         // GET: api/Books
         public IEnumerable<Book> Get()
         {
@@ -36,6 +37,8 @@ namespace BookStore.Controllers
                 }
                 else
                 {
+                    // THe reason they do this is because if the entity has an id the 'create' is counted
+                    // as an edit
                     var original = _db.Books.Find(book.Id);
                     original.Title = book.Title;
                     original.Author = book.Author;
