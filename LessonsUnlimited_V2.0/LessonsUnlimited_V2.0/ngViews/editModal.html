@@ -1,0 +1,15 @@
+﻿<div class="modal-header">Edit Lesson</div>
+<div class="modal-body">
+    <form ng-submit="modal.editLesson()">
+        <div>
+            <label>Title</label>
+            <input ng-model="modal.lesson.title" />
+        </div>
+        <div>
+            <label>Author</label>
+            <input ng-model="modal.lesson.author" />
+        </div>
+        <input type="submit" value="Save" />
+    </form>
+
+</div>

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace LessonsUnlimited_V2._0.Services
 {
-    public class LessonServices : LessonsUnlimited_V2._0.Services.ILessonServices
+    public class LessonServices : LessonsUnlimited_V2._0.Services.ILessonServices 
     {
         private IGenericRepository _repo;
         public LessonServices(IGenericRepository repo)
@@ -26,6 +26,28 @@ namespace LessonsUnlimited_V2._0.Services
         {
             return _repo.Find<Lesson>(id);
         }
+
+        public void Create(Lesson lesson) 
+        {
+            _repo.Add<Lesson>(lesson);
+            _repo.SaveChanges();
+        }
+
+        public void Edit(Lesson lesson)
+        {
+            var original = this.Find(lesson.Id);
+            original.Title=lesson.Title;
+            original.Author = lesson.Author;
+            original.Description = lesson.Description;
+            original.VideoLink = lesson.VideoLink;
+        }
+
+        public void Delete (int id)
+        {
+            _repo.Delete<Lesson>(id);
+            _repo.SaveChanges();
+        }
+
 
         
 

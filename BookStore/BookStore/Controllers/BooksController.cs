@@ -1,4 +1,5 @@
 ﻿using BookStore.Models;
+using BookStore.Resource;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace BookStore.Controllers
         // GET: api/Books
         public IEnumerable<Book> Get()
         {
+            var x = ConstStrings.Common1;
+
             return _db.Books.ToList();
         }
 
@@ -61,7 +64,7 @@ namespace BookStore.Controllers
             var book = _db.Books.Find(id);
             _db.Books.Remove(book);
             _db.SaveChanges();
-             
+
         }
     }
 }

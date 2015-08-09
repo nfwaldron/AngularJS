@@ -27,25 +27,42 @@ namespace LessonsUnlimited_V2._0.Controllers
         }
 
         // GET: api/Lessons/5
-        public string Get(int id)
+        public Lesson Get(int id)
         {
-            return "value";
+            return _service.Find(id);
         }
 
         // POST: api/Lessons
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post(Lesson lesson)
         {
+            if (ModelState.IsValid)
+            {
+                if (lesson.Id==0)
+                {
+                    _service.Create(lesson);
+                    return Request.CreateResponse(HttpStatusCode.Created, lesson);
+                }
 
+                else
+                {
+                    _service.Edit(lesson);
+                    return Request.CreateResponse(HttpStatusCode.OK, lesson);
+                }
+
+            }
+            return Request.CreateResponse(HttpStatusCode.BadRequest, this.ModelState);
         }
 
         // PUT: api/Lessons/5
         public void Put(int id, [FromBody]string value)
         {
+            
         }
 
         // DELETE: api/Lessons/5
         public void Delete(int id)
         {
+            _service.Delete(id);
         }
     }
 }

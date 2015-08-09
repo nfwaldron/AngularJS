@@ -1,6 +1,6 @@
 ﻿(function () {
     'use strict'
-    angular.module('myApp', ['ngRoute', 'ngResource']).config(function ($routeProvider, $locationProvider) {
+    angular.module('myApp', ['ngRoute', 'ngResource', 'ui.bootstrap']).constant('lessonsControllerUrl', '/api/lessons/:id').config(function ($routeProvider, $locationProvider) {
         //$routeProvider to define our routes. If someone enters the address/or the address/viewA in 
         //their browser then the /ngViews/viewA.html template will be inserted into the layout. If 
         //someone requests the URL /viewB/78 or /viewB/2 then the /ngViews/viewB.html template will be 

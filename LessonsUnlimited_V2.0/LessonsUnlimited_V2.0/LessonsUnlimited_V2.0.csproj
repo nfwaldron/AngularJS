@@ -249,6 +249,7 @@
     <Content Include="Global.asax" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\masterController.js" />
+    <Content Include="ngViews\editModal.html" />
     <Content Include="ngViews\home.html" />
     <Content Include="ngViews\lessons.html" />
     <Content Include="ngViews\notFound.html" />

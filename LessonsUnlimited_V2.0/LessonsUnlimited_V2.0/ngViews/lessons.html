@@ -6,7 +6,8 @@
 
 <div>
     <ul>
-        <li ng-repeat="lesson in main.lessons">{{lesson.title}}</li>
+        <li ng-repeat="lesson in main.lessons">{{lesson.title}} - {{lesson.author}} <a href="#" ng-click="main.showEditModal(lesson.id)">Edit</a> </li>
+
     </ul>
        
 </div>

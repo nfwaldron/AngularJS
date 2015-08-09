@@ -1,9 +1,11 @@
 ﻿(function () {
     var app = angular.module('BookApp');
-    app.controller('BooksController', function ($resource, $modal, booksControllerUrl) {
+    app.controller('BooksController', function ($resource, $modal, booksControllerUrl, demoService) {
         var self = this;
-        self.taxes = taxService(3.44)
-
+       
+        function lolz() {
+            demoService.haha();
+        }
         // If a function is being used to represent a class put it in uppercase.
         // the $resource will go off to the books controller, and go to the get method,
         // and 
@@ -44,7 +46,7 @@
                 self.books = Book.query();
             });
         }
-
+        lolz();
     });
 
     app.controller('ModalController', function (id, $modalInstance, $resource, booksControllerUrl) {
