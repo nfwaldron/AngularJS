@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
+<head>
+    <title></title>
+    @*DO NOT FORGET TO INCLUDE BASE!!!*@
+    <base href="/" />
+    @*DO NOT FORGET TO INCLUDE BASE!!!*@
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="body-content" ng-controller="AccountController as account">
+        <div class="row">
+            <div class="col-md-2 pull-right">
+                <form ng-submit="account.login()" ng-hide="account.isLoggedIn()">
+                    <input placeholder="Email" type="text" ng-model="account.login.email" />
+                    <input placeholder="Password" type="password" ng-model="account.login.password" />
+                    <input type="submit" value="Submit" />{{account.loginMessage}}
+                </form>
+                <button ng-click="account.logout()" ng-show="account.isLoggedIn()">Log Out</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <a href="/admin" ng-show="account.isAdmin()">Admin</a>
+            </div>   
+        </div>
+        <ng-view></ng-view>
+    </div>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular-resource.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/ngApp/app.js"></script>
+    <script src="~/ngApp/controllers.js"></script>
+</body>
+</html>

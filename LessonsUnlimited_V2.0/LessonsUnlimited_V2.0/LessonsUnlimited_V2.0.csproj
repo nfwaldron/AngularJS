@@ -241,14 +241,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Areas\instruments-801271_1920.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Custom.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="ngApp\app.js" />
     <Content Include="ngApp\masterController.js" />
+    <Content Include="ngApp\services.js" />
+    <Content Include="ngViews\createModal.html" />
+    <Content Include="ngViews\removeModal.html" />
     <Content Include="ngViews\editModal.html" />
     <Content Include="ngViews\home.html" />
     <Content Include="ngViews\lessons.html" />
@@ -319,6 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Assets\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

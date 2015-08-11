@@ -1,0 +1,23 @@
+﻿<div class="modal-header">Create Lesson</div>
+<div class="modal-body">
+    <form ng-submit="modal.save()">
+        <div>
+            <label>Title</label>
+            <input ng-model="modal.lesson.title" />
+        </div>
+        <div>
+            <label>Author</label>
+            <input ng-model="modal.lesson.author" />
+        </div>
+        <div>
+            <label>Description</label>
+            <input ng-model="modal.lesson.description" />
+        </div>
+        <div>
+            <label>Video Link</label>
+            <input ng-model="modal.lesson.videoLink" />
+        </div>
+        <input type="submit" value="Save" />
+    </form>
+
+</div>

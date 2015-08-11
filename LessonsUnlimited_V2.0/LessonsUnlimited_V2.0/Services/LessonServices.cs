@@ -40,6 +40,8 @@ namespace LessonsUnlimited_V2._0.Services
             original.Author = lesson.Author;
             original.Description = lesson.Description;
             original.VideoLink = lesson.VideoLink;
+            _repo.SaveChanges();
+
         }
 
         public void Delete (int id)

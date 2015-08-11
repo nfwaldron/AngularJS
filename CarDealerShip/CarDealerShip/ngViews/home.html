@@ -1,0 +1,37 @@
+﻿<div class="section" id="cars">
+    <div class="row">
+        <div class="col-md-4" ng-repeat=" tesla in main.teslas">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{tesla.title}}
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive" ng-src="{{tesla.picture}}" />
+                    <p>Price: {{tesla.price}}</p>
+                    <p>Range: {{tesla.range}}</p>
+                    <p>Charging Time: {{tesla.chargeTime}}</p>
+                    <p>Brief Description: {{tesla.briefDescription}}</p>
+                    <p>Full Description: {{tesla.fullDescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" ng-repeat="royce in main.rolls">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{royce.title}}
+                </div>
+                <div class="panel-body">
+                    <img class="img-responsive" ng-src="{{royce.picture}}" />
+                    <p>Price: {{royce.price}}</p>
+                    <p>Gas Mileage: {{royce.gasMileage}}</p>
+                    <p>Brief Description: {{royce.briefDescription}}</p>
+                    <p>Full Description: {{royce.fullDescription}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

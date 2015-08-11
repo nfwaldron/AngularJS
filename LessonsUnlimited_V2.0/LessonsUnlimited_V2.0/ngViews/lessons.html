@@ -1,14 +1,27 @@
 ﻿<div>
-    <h1>Lessons</h1>
-    <h2>{{main.message}}</h2>
-    <a href="/home">Go to Home Page</a>
+    <a ng-click="main.showCreateModal()"> Create </a>    
 </div>
 
-<div>
-    <ul>
-        <li ng-repeat="lesson in main.lessons">{{lesson.title}} - {{lesson.author}} <a href="#" ng-click="main.showEditModal(lesson.id)">Edit</a> </li>
+<div class="section">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" ng-repeat="lesson in main.lessons">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Lesson {{lesson.id}}</h3>
+                </div>
+                <div class="panel-body">
+                    <h4>Title:</h4> {{lesson.title}}
+                    <h4>Author:</h4>{{lesson.author}}
+                    <h4>Description:</h4>{{lesson.description}}
+                    <div class="embed-responsive embed-responsive-4by3">
+                        <iframe class="embed-responsive-item" src="{{main.embedLink(lesson.videoLink)}}" frameborder="0" allowfullscreen></iframe>
+                    </div>
 
-    </ul>
-       
+                </div>
+                <div class="panel-footer">
+                    <a ng-click="main.showEditModal(lesson.id)">Edit</a> | <a ng-click="main.showRemoveModal(lesson.id)">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-

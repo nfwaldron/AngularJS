@@ -9,57 +9,99 @@
         };
     });
 
-    app.controller('LessonsController', function ($routeParams, $resource, $modal, lessonsControllerUrl) {
+    app.controller('LessonsController', function ($routeParams, $resource, $modal, lessonServices, $sce) {
         var self = this;
-        self.message = "Hello from the Lessons View. You requested id" + $routeParams.id;
+       
+        self.embedLink = function (videoLink) {
 
-        // Resource object to retrieve a list of movies from the server. 
-        // It retrieves a list of movies from the HTTP GET Ajax call...
-        var Lesson = $resource('/api/lessons/:id')
-        // The .query() method performs an HTTP GET Ajax call to the URL /api/lessons/:id
-        self.lessons = Lesson.query();
+            return $sce.trustAsResourceUrl("https://www.youtube.com/embed/" + videoLink);
 
-        // Client-side function used to Create a book
-        self.createLesson = function () {
-            var lesson = new Lesson(self.lesson);
-            lesson.$save(function (newLesson) {
-                self.lessons.push(newLesson);
-                self.lessons = null;
-
-            });
         };
 
-        // Client-side function used to Delete a book
-        self.delete = function (lesson) {
-            lesson.$remove({ id: lesson.id }, function () {
-                self.lessons = self.lessons.filter(function (item) {
-                    return item.id != lesson.id;
-                });
-            });
+        self.lessons = [];
+
+        self.getLessons = function () {
+            // Array to store the list of lessons fretrieved from the API controller
+            self.lessons = lessonServices.listAll();
         };
 
+        // When the controller is called, the getLessons() method is executed, which 
+        // executes lines 18-20.
+        self.getLessons();
+        
+
+        //Create MODAL
+        self.showCreateModal = function () {
+            $modal.open({
+                templateUrl: '/ngViews/createModal.html',
+                controller: 'CreateLessonModal',
+                controllerAs: 'modal'
+            }).result.then(function () {
+                self.getLessons();
+            });
+        };
+       
+        // Edit MODAL
         self.showEditModal = function (id) {
             $modal.open({
-                templateUrl: '/ngViews/editModal.html',
-                controller: 'ModalController',
+                templateUrl: '/ngViews/createModal.html',
+                controller: 'EditLessonModal',
                 controllerAs: 'modal',
                 resolve: { id: function () { return id; } }
             }).result.then(function () {
-                self.lessons = Lesson.query();
+                self.getLessons();
+            });
+        }
+
+        // Delete MODAL
+        self.showRemoveModal = function (id) {
+            $modal.open({
+                templateUrl: '/ngViews/removeModal.html',
+                controller: 'RemoveLessonModal',
+                controllerAs: 'modal',
+                resolve: {
+                    id: function () {
+                        return id;
+                    }
+                }
+            }).result.then(function () {
+                self.getLessons();
             });
         }
 
     });
 
-    app.controller('ModalController', function (id, $modalInstance, $resource, lessonsControllerUrl) {
+    app.controller('CreateLessonModal', function ( $modalInstance, lessonServices) {
         var self = this;
-        var Lesson = $resource('/api/lessons/:id');
-        self.lesson = Lesson.get({ id: id });
-
-        self.editLesson = function () {
-            self.lesson.$save(function () {
-            $modalInstance.close();
+        self.save = function () {
+            lessonServices.save(self.lesson).$promise.then(function () {
+                $modalInstance.close();
             });
+        };
+    });
+
+    app.controller('EditLessonModal', function ($modalInstance, lessonServices, id) {
+        var self = this;
+        self.lesson = lessonServices.get(id);
+        self.save = function () {
+            lessonServices.save(self.lesson).$promise.then(function () {
+                $modalInstance.close();
+            });
+        };
+    });
+
+    app.controller('RemoveLessonModal', function ($modalInstance, lessonServices, id) {
+        var self = this;
+
+        // Remove a selected lesson.
+        self.remove = function () {
+            lessonServices.remove(id).$promise.then(function () {
+                $modalInstance.close();
+            })
+        }
+        // Dismiss the modal (in the case that the user does not want to delete)
+        self.exit = function () {
+            $modalInstance.dismiss();
         };
     });
 
